@@ -14,33 +14,35 @@ import javax.swing.JPanel;
 
 
 public class MidiUi extends JFrame{
-	ArrayList<JCheckBox> cBoxes;
-	JButton startBut;
-	JButton stopBut;
-	JButton tempoUpBut;
-	JButton tempoDnBut;
-	String [] buttStrings;
-	JLabel [] jLabs;
-	String[] labStrings;
-	JPanel background;
-	JPanel leftPan;
-	JPanel centerPan;
-	JPanel rightPan;
-	
+	private ArrayList<JCheckBox> cBoxes;
+	private JButton startBut;
+	private JButton stopBut;
+	private JButton tempoUpBut;
+	private JButton tempoDnBut;
+	private String[] labStrings;
+	private JPanel background;
+	private JPanel leftPan;
+	private JPanel centerPan;
+	private JPanel rightPan;
+	MidiTrack midi;
+
+
 
 	
 	public MidiUi(){
+		midi = new MidiTrack();
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 500);
 		cBoxes = new ArrayList<>();
-		jLabs = new JLabel[16];
 		labStrings = new String[]{"Bass Drum", "losed Hi-Hat","Open Hi-Hat", "Acoustic Snare", "Crash Cymbal",
 				"Hand Clap", "High Tom", "Hi Bongo", "Maracas", "Whistle", "Low Conga", "Cowbell", "Vibraslap",
 				"Low-mid Tom", "High Agogo", "Open Hi Conga"};
+	
 		background = new JPanel();
 		background.setLayout(new BorderLayout());
 		background.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
+	
 		
     //Add instrument labels
 		GridLayout labelGrid = new GridLayout(16,1);
@@ -88,41 +90,36 @@ public class MidiUi extends JFrame{
 		
 	}
 	
+	
+	
+	
 	class StartEv implements ActionListener{
 
-		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			System.out.print("start");
+			midi.startBeat(cBoxes);
+		//	System.out.print("start");
 			
 		}
-		
 	}
+	
+	
 	class StopEv implements ActionListener{
-
-		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
-			System.out.print("stop");
+			midi.stopBeat();
 		}
-		
 	}
+
+	
 	class TempoUpEv implements ActionListener{
-
-		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
-			System.out.print("up!");
+			midi.setTempo("up");
 		}
-		
 	}
+
+	
 	class TempoDnEv implements ActionListener{
-
-		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
-			System.out.print("down!");
+			midi.setTempo("down");
 		}
-		
 	}
-
 }
