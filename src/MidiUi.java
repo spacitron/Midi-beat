@@ -35,7 +35,7 @@ public class MidiUi extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 500);
 		cBoxes = new ArrayList<>();
-		labStrings = new String[]{"Bass Drum", "losed Hi-Hat","Open Hi-Hat", "Acoustic Snare", "Crash Cymbal",
+		labStrings = new String[]{"Bass Drum", "Closed Hi-Hat","Open Hi-Hat", "Acoustic Snare", "Crash Cymbal",
 				"Hand Clap", "High Tom", "Hi Bongo", "Maracas", "Whistle", "Low Conga", "Cowbell", "Vibraslap",
 				"Low-mid Tom", "High Agogo", "Open Hi Conga"};
 	

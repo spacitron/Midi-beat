@@ -52,7 +52,7 @@ public class MidiTrack {
 		sequencer.stop();
 	}
 
-  //Changes track tempo - does not work ATM	
+  //Changes track tempo
 	public void setTempo(String downUp) {
 		float tempo = sequencer.getTempoFactor();
 		if (downUp.equals("up")) {
